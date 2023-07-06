@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SellerSignUpDto {
+public class SellerSaveRequest {
 
     @NotEmpty(message = "이메일은 필수 입력 값입니다.")
     @Email

@@ -4,6 +4,7 @@ import com.mimikyu.phantom.domain.BaseEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 
@@ -28,6 +29,11 @@ public class Seller extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public Seller hashPassword(PasswordEncoder passwordEncoder) {
+        this.password = passwordEncoder.encode(this.password);
+        return this;
+    }
 
     @Builder
     public Seller(Long id, String email, String password, String name, Role role) {
