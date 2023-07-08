@@ -2,6 +2,7 @@ package com.mimikyu.phantom.controller;
 
 import com.mimikyu.phantom.common.CommonResult;
 import com.mimikyu.phantom.dto.LoginRequest;
+import com.mimikyu.phantom.dto.LoginResponse;
 import com.mimikyu.phantom.dto.SellerSaveRequest;
 import com.mimikyu.phantom.dto.SellerSaveResponse;
 import com.mimikyu.phantom.service.AuthService;
@@ -25,7 +26,7 @@ public class SignController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<?> signIn(@RequestBody LoginRequest loginRequest) {
+    public LoginResponse signIn(@RequestBody LoginRequest loginRequest) {
         return signService.login(loginRequest);
     }
 

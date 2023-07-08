@@ -22,5 +22,6 @@ spring:
 
 jwt:
   token:
-    access-token-secret-key: phantom
+    access-token-secret-key: NiOeyFbN1Gqo10bPgUyTFsRMkJpGLXSvGP04eFqj5B30r5TcrtlSXfQ7TndvYjNvfkEKLqILn0j1SmKODO1Yw3JpBBgI3nVPEahqxeY8qbPSFGyzyEVxnl4AQcrnVneI
     access-token-expire-length: 300000
+    issuer: jihongha
