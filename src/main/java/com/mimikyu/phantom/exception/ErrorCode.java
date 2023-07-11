@@ -10,8 +10,10 @@ import static org.springframework.http.HttpStatus.*;
 @AllArgsConstructor
 public enum ErrorCode {
 
+    SELLER_NOT_FOUND(BAD_REQUEST, "MEMBER-001" , "존재하지 않는 회원입니다"),
     SELLER_EMAIL_EXISTS(CONFLICT, "MEMBER-002", "이미 존재하는 회원 이메일입니다"),
     WRONG_LOGIN(BAD_REQUEST, "LOGIN-001", "아이디 또는 비밀번호가 일치하지 않습니다.");
+
 
 
     private final HttpStatus httpStatus;
