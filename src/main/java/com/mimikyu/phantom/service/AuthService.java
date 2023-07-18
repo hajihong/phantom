@@ -1,15 +1,19 @@
 package com.mimikyu.phantom.service;
 
 
-import com.mimikyu.phantom.dto.LoginRequest;
-import com.mimikyu.phantom.dto.LoginResponse;
-import com.mimikyu.phantom.dto.SellerSaveRequest;
-import com.mimikyu.phantom.dto.SellerSaveResponse;
+import com.mimikyu.phantom.common.CommonResult;
+import com.mimikyu.phantom.dto.*;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface AuthService {
 
     SellerSaveResponse join(SellerSaveRequest sellerSaveRequest);
 
-    LoginResponse login(LoginRequest loginRequest);
+    @Transactional
+    CommonResult validateDuplicateEmail(String email);
+
+    ResponseEntity<?> login(LoginRequest loginRequest);
+
+    ResponseEntity<TokenDto> regenerateToken(RegenerateTokenDto refreshTokenDto);
 }

@@ -1,10 +1,7 @@
 package com.mimikyu.phantom.controller;
 
 import com.mimikyu.phantom.common.CommonResult;
-import com.mimikyu.phantom.dto.LoginRequest;
-import com.mimikyu.phantom.dto.LoginResponse;
-import com.mimikyu.phantom.dto.SellerSaveRequest;
-import com.mimikyu.phantom.dto.SellerSaveResponse;
+import com.mimikyu.phantom.dto.*;
 import com.mimikyu.phantom.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RequestMapping
 @RestController
@@ -26,8 +25,13 @@ public class SignController {
     }
 
     @PostMapping("/sign-in")
-    public LoginResponse signIn(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity signIn(@RequestBody LoginRequest loginRequest) {
         return signService.login(loginRequest);
+    }
+
+    @PostMapping("/regenerateToken")
+    public ResponseEntity<TokenDto> regenerateToken(@Valid @RequestBody RegenerateTokenDto refreshTokenDto) {
+        return signService.regenerateToken(refreshTokenDto);
     }
 
 }
