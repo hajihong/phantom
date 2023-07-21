@@ -11,19 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 @RequestMapping
 @RestController
 @RequiredArgsConstructor
 public class ItemController {
-    private final ItemService itemService;
+//    private final ItemService itemService;
 
-    @PostMapping("/item/new")
-    public ItemUploadResponse itemUploadProcess(@RequestBody ItemUploadRequest itemUploadRequest, @AuthenticationPrincipal UserDetails userDetails) throws Exception {
-        return itemService.saveItem(itemUploadRequest);
-
-    }
+//    @PostMapping("/item/new")
+//    public ItemUploadResponse itemUploadProcess(@RequestBody ItemUploadRequest itemUploadRequest, @AuthenticationPrincipal UserDetails userDetails) throws Exception {
+//        return itemService.saveItem(itemUploadRequest);
+//    }
 
 
 }
