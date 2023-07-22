@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class ItemController {
-//    private final ItemService itemService;
+    private final ItemService itemService;
 
-//    @PostMapping("/item/new")
-//    public ItemUploadResponse itemUploadProcess(@RequestBody ItemUploadRequest itemUploadRequest, @AuthenticationPrincipal UserDetails userDetails) throws Exception {
-//        return itemService.saveItem(itemUploadRequest);
-//    }
+    @PostMapping("/item/new")
+    public ItemUploadResponse itemUploadProcess(@RequestBody ItemUploadRequest itemUploadRequest, @AuthenticationPrincipal UserDetails userDetails) throws Exception {
+        return itemService.saveItem(itemUploadRequest);
+    }
 
 
 }

@@ -1,6 +1,8 @@
 package com.mimikyu.phantom.domain.item;
 
 import com.mimikyu.phantom.domain.BaseEntity;
+import com.mimikyu.phantom.domain.user.Seller;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +12,6 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Table(name = "item")
-
 public class Item extends BaseEntity {
 
     @Id
@@ -29,5 +30,14 @@ public class Item extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;
+
+    @Builder
+    public Item(Long id, String itemName, int price, int stockNumber, ItemSellStatus itemSellStatus) {
+        this.id = id;
+        this.itemName = itemName;
+        this.price = price;
+        this.stockNumber = stockNumber;
+        this.itemSellStatus = itemSellStatus;
+    }
 
 }
